@@ -20,7 +20,7 @@ output folder is `./static`
 
 Key files
 --------------------
-
+```
 server.py                   Server script
 
 browser-src/
@@ -42,3 +42,4 @@ browser-src/
   socket/
 
     socket.jsx             socket.io instance
+```
