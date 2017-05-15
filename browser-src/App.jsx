@@ -15,6 +15,7 @@ export class App extends PureComponent {
       activeUser: -1, // index of current highlighted user
       updateCounter: 0 // ensure the name broadcast is the latest version
     };
+    this.handleRegister = this.handleRegister.bind(this);
     this.handleOpenChat = this.handleOpenChat.bind(this);
     this.handleCloseChat = this.handleCloseChat.bind(this);
     this.getUnopenedUsers = this.getUnopenedUsers.bind(this);
@@ -38,14 +39,7 @@ export class App extends PureComponent {
 
     socket.on('register_success', (name) => {
       // triggers on successfully registered
-      // will try to get stored history from localStorage
-      let userRecords;
-      try {
-        userRecords = JSON.parse(localStorage.getItem(name)) || {}
-      } catch (e) {
-        userRecords = {}
-      }
-      this.setState({ registered: true, name, userRecords });
+      this.setState({ registered: true, name });
     });
 
     socket.on('request_update_name', (updateCounter) => {
@@ -78,6 +72,14 @@ export class App extends PureComponent {
   handleRegister(name) {
     // triggers on requesting to register
     socket.emit('register', name);
+    // will try to get stored history from localStorage
+    let userRecords;
+    try {
+      userRecords = JSON.parse(localStorage.getItem(name)) || {}
+    } catch (e) {
+      userRecords = {}
+    }
+    this.setState({ userRecords });
   }
 
   handleOpenChat(name, keepOrder) {
