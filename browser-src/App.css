@@ -1,0 +1,60 @@
+  .App__name {
+    padding: 20px;
+    color: #410072;
+  }
+
+  .App__navbar {
+    line-height: 4em;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #410072;
+    color: #FFFFFF;
+    text-align: center;
+  }
+
+  .App__container {
+    padding: 20px;
+  }
+
+  .App__label {
+    margin-top: 10px;
+    color: #999999;
+  }
+
+  .App__connecting {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 1em;
+    width: 100%;
+    text-align: center;
+    animation: blink 1s infinite;
+  }
+
+  .App__connected {
+    vertical-align: middle;
+    font-size: 0.5em;
+    margin-left: 10px;
+    animation: blink-connected 5s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      color: #CCCCCC;
+    }
+    50% {
+      color: #111111;
+    }
+  }
+
+  @keyframes blink-connected {
+    0%,
+    100% {
+      color: #00AA00;
+    }
+    50% {
+      color: #FFFFFF;
+    }
+  }

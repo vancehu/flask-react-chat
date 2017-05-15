@@ -1,0 +1,77 @@
+.ChatBox__container {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  height: 400px;
+  width: 300px;
+  border: 1px solid #450763;
+  border-radius: 2px;
+  position: relative;
+}
+
+.ChatBox__container.active {
+  box-shadow: 0 0 10px 1px rgba(108, 181, 49, 0.5);
+}
+
+.ChatBox__title {
+  background-color: #3a008a;
+  color: white;
+  line-height: 32px;
+  padding-left: 10px;
+}
+
+.ChatBox__title.offline {
+  background-color: #777777;
+}
+
+.ChatBox__close {
+  top: 0;
+  right: 0;
+  height: 32px;
+  position: absolute;
+}
+
+.ChatBox__content {
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  overflow-y: scroll;
+}
+
+.ChatBox__line {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.ChatBox__inbox {
+  color: #410072;
+}
+
+.ChatBox__outbox {
+  color: #1a7a1c;
+}
+
+.ChatBox__input {
+  bottom: 0;
+  border: 1px solid #aaaaaa;
+  left: 0;
+  right: 80px;
+  width: 220px;
+  padding-left: 10px;
+  height: 32px;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.ChatBox__button {
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 32px;
+  box-sizing: border-box;
+  position: absolute;
+}

@@ -1,0 +1,13 @@
+.Unopened__user {
+  color: #3a008a;
+  cursor: pointer;
+}
+
+.Unopened {
+  margin-top: 10px;
+  color: #999999;
+}
+
+.Unopened__user:hover {
+  color: #6750ff;
+}

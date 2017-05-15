@@ -1,0 +1,11 @@
+.UserList__name {
+  margin-right: 50px;
+}
+
+.UserList__select {
+  margin-right: 10px;
+  border-radius: 2px;
+  border: none;
+  padding: 5px;
+  margin: auto 10px;
+}
