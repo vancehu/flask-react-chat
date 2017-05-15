@@ -1,6 +1,7 @@
-React + Flask + Socket.io Chatroom
+# React + Flask + Socket.io Chatroom
 
-1. Installation
+Installation
+-----------------
 
 run directly (javascript is pre-built):
 ```
@@ -17,7 +18,8 @@ debug/build javascript:
 
 output folder is `./static`
 
-2. Key files
+Key files
+--------------------
 
 server.py                   Server script
 
