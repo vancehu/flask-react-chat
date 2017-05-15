@@ -42,9 +42,9 @@ export class ChatBox extends Component {
   render() {
     const { from, to, userRecords, active, online } = this.props;
     return <div className={"ChatBox__container" + (active ? " active" : "")} onClick={this.props.handleClick}>
-      <div className={"ChatBox__title" + (online ? "" : " offline")}>{to + (online ? "" : " (offline)")}<button className="ChatBox__close" onClick={this.handleClose}>x</button></div>
+      <div className={"ChatBox__title" + (online ? "" : " offline")}>{to + (online ? "" : " (offline)")}<button className="ChatBox__close" onClick={this.handleClose}>X</button></div>
       <div className="ChatBox__content" ref="content">
-        {userRecords[to] && userRecords[to].map((record, index) => <div className="ChatBox__line" key={index.toString()}>{record.inbox ? <span className="ChatBox__inbox">{to}: </span> : <span className="ChatBox__outbox">{from}: </span>}{record.body}</div>)}
+        {userRecords[to] && userRecords[to].map((record, index) => <div className="ChatBox__line" key={index.toString()}>{record.inbox ? <span className="ChatBox__inbox">{to}: </span> : <span className="ChatBox__outbox">{from}: </span>}{record.body}<span className="ChatBox__timestamp"> ({new Date(record.timestamp).toTimeString().substring(0, 5)})</span></div>)}
         {!userRecords[to] && <div className="ChatBox__line">No chat history</div>}
       </div>
       <input className="ChatBox__input" type="text" onChange={this.handleBodyChange} onKeyPress={this.handleKeyPress} value={this.state.body} /><button className="ChatBox__button" disabled={!this.validate()} onClick={this.handleSend}>Send</button>

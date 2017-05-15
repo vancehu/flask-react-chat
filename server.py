@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, json
 from flask_socketio import SocketIO, send, emit, join_room
+import time
 
 app = Flask(__name__)
 # app.debug = True
@@ -52,7 +53,13 @@ def handle_update_name(data):
 def handle_send(data):
     # send message to a specified user (room)
     # data: {body: str, from: str, to: str}
-    emit('send', {'body': data['body'], 'user': data['from']}, room=data['to'])
+    timestamp = int(time.time() * 1000)
+    # response a confirmation with timestamp to the sender
+    emit('send_success', {'body': data['body'],
+                          'user': data['to'], 'timestamp': timestamp})
+    # send the message to the receiver
+    emit('new_message', {'body': data['body'],
+                         'user': data['from'], 'timestamp': timestamp}, room=data['to'])
 
 
 if __name__ == '__main__':

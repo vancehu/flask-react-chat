@@ -62,10 +62,15 @@ export class App extends PureComponent {
       }
     });
 
-    socket.on('send', ({ user, body }) => {
+    socket.on('send_success', ({ user, body, timestamp }) => {
+      // triggers on a message received
+      this.addRecord(user, body, timestamp, false);
+    });
+
+    socket.on('new_message', ({ user, body, timestamp }) => {
       // triggers on a message received
       this.handleOpenChat(user, true);
-      this.addRecord(user, body, true);
+      this.addRecord(user, body, timestamp, true);
     });
   }
 
@@ -111,7 +116,6 @@ export class App extends PureComponent {
   handleSend(data) {
     // triggers on requesting to send a message
     socket.emit('send', data);
-    this.addRecord(data.to, data.body, false);
   }
 
   getUnopenedUsers() {
@@ -119,7 +123,7 @@ export class App extends PureComponent {
     return Object.keys(this.state.userRecords).filter(user => !this.state.openedUsers.includes(user));
   }
 
-  addRecord(user, body, inbox) {
+  addRecord(user, body, timestamp, inbox) {
     // add the record to userRecords (chat history)
     // inbox: true means it's send from 'user' to 'me'
     // also attempt to save to localStorage
@@ -127,7 +131,7 @@ export class App extends PureComponent {
     if (userRecords[user] === undefined) {
       userRecords[user] = [];
     }
-    userRecords[user].push({ body, inbox });
+    userRecords[user].push({ body, inbox, timestamp });
     localStorage.setItem(this.state.name, JSON.stringify(userRecords));
     this.setState({ userRecords });
   }
@@ -135,7 +139,7 @@ export class App extends PureComponent {
   render() {
     const { connected, onlineUsers, openedUsers, name, registered, userRecords, activeUser } = this.state;
     if (!connected) {
-      return <div className="App__connecting">Connecting...</div>
+      return <h1 className="App__name">Chat Server<span className="App__connecting">&#8226; connecting</span></h1>
     }
     return <div className="App">
       <h1 className="App__name">Chat Server<span className="App__connected">&#8226; connected</span></h1>

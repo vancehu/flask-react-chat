@@ -23,14 +23,10 @@
   }
 
   .App__connecting {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 1em;
-    width: 100%;
-    text-align: center;
-    animation: blink 1s infinite;
+    vertical-align: middle;
+    font-size: 0.5em;
+    margin-left: 10px;
+    animation: blink-connecting 5s infinite;
   }
 
   .App__connected {
@@ -40,20 +36,20 @@
     animation: blink-connected 5s infinite;
   }
 
-  @keyframes blink {
-    0%,
-    100% {
-      color: #CCCCCC;
-    }
-    50% {
-      color: #111111;
-    }
-  }
-
   @keyframes blink-connected {
     0%,
     100% {
       color: #00AA00;
+    }
+    50% {
+      color: #FFFFFF;
+    }
+  }
+
+  @keyframes blink-connecting {
+    0%,
+    100% {
+      color: #AA0000;
     }
     50% {
       color: #FFFFFF;

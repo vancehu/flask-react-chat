@@ -49,10 +49,17 @@
 
 .ChatBox__inbox {
   color: #410072;
+  font-weight: 700;
 }
 
 .ChatBox__outbox {
   color: #1a7a1c;
+  font-weight: 700;
+}
+
+.ChatBox__timestamp {
+  font-size: 0.8em;
+  color: #aaaaaa;
 }
 
 .ChatBox__input {
