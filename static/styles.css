@@ -676,6 +676,8 @@ template {
   left: 0;
   right: 0;
   overflow-y: scroll;
+  overflow-x: hidden;
+  word-break: break-word;
 }
 
 .ChatBox__line {
