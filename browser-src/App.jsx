@@ -38,10 +38,10 @@ export class App extends PureComponent {
 
     socket.on('register_success', (name) => {
       // triggers on successfully registered
-      // will try to get stored history from sessionStorage
+      // will try to get stored history from localStorage
       let userRecords;
       try {
-        userRecords = JSON.parse(sessionStorage.getItem(name)) || {}
+        userRecords = JSON.parse(localStorage.getItem(name)) || {}
       } catch (e) {
         userRecords = {}
       }
@@ -120,13 +120,13 @@ export class App extends PureComponent {
   addRecord(user, body, inbox) {
     // add the record to userRecords (chat history)
     // inbox: true means it's send from 'user' to 'me'
-    // also attempt to save to sessionStorage
+    // also attempt to save to localStorage
     let userRecords = Object.assign({}, this.state.userRecords);
     if (userRecords[user] === undefined) {
       userRecords[user] = [];
     }
     userRecords[user].push({ body, inbox });
-    sessionStorage.setItem(this.state.name, JSON.stringify(userRecords));
+    localStorage.setItem(this.state.name, JSON.stringify(userRecords));
     this.setState({ userRecords });
   }
 
