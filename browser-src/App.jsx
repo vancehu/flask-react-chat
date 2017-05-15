@@ -145,8 +145,8 @@ export class App extends PureComponent {
       </div>
       {/* iterate ChatBox for users that marked as opened */}
       <div className="App__container">
-        {!registered && <span className="App__label">Please register your name first.</span>}
-        {registered && openedUsers.length === 0 && <span className="App__label">Please select a user to start a chat.</span>}
+        {!registered && <div className="App__label">Please register your name first.</div>}
+        {registered && openedUsers.length === 0 && <div className="App__label">Please select a user to start a chat.</div>}
         {openedUsers.map((user, index) =>
           <ChatBox key={user} from={name} to={user} userRecords={userRecords}
             handleCloseChat={this.handleCloseChat} handleSend={this.handleSend}

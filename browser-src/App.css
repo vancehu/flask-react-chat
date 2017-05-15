@@ -14,12 +14,12 @@
 
   .App__container {
     padding: 20px;
-    text-align: center;
   }
 
   .App__label {
     margin-top: 10px;
     color: #999999;
+    text-align: center;
   }
 
   .App__connecting {
