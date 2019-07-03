@@ -1,5 +1,4 @@
 #!/bin/bash
-
-pip install -r ./requirements.txt
+pipenv install
 echo 'starting server'
-python ./server.py
+pipenv run python ./server.py

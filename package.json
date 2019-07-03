@@ -4,16 +4,16 @@
   "description": "",
   "main": "webpack.config.js",
   "devDependencies": {
-    "babel-core": "6.24.1",
-    "babel-loader": "7.0.0",
+    "babel-core": "6.26.3",
+    "babel-loader": "8.0.6",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-es2016": "6.24.1",
     "babel-preset-es2017": "6.24.1",
     "babel-preset-react": "6.24.1",
-    "css-loader": "0.28.1",
-    "extract-text-webpack-plugin": "2.1.0",
-    "style-loader": "0.17.0",
-    "webpack": "2.5.1"
+    "css-loader": "3.0.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "style-loader": "0.23.1",
+    "webpack": "4.35.2"
   },
   "scripts": {
     "build:dev": "webpack --watch",
@@ -22,8 +22,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react": "15.5.4",
-    "react-dom": "15.5.4",
-    "socket.io": "2.0.1"
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "socket.io": "2.2.0"
   }
 }
